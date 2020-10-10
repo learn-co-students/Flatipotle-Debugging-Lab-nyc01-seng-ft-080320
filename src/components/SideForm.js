@@ -3,6 +3,7 @@ import React, { Fragment } from 'react'
 const SideForm = (props) => {
   return (
     <Fragment>
+      {console.log(props)}
       <h1><label htmlFor="sides">Sides</label></h1>
       <div className="inline fields ui centered grid">
         <div className="field">
@@ -113,3 +114,4 @@ const SideForm = (props) => {
     </Fragment>
   )
 }
+export default SideForm
