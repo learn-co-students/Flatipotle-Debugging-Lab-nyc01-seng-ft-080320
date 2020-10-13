@@ -9,15 +9,15 @@ class App extends Component {
   }
 
   addOrder = (order) => {
-    this.setState({
-      orders: this.state.orders.concat(order)
+    this.setState(prevState => {
+      return {
+          orders: prevState.orders.concat(order)
+      }
     })
   }
 
   render() {
-    const orders = this.state.orders.map( (order, idx) => {
-      <Order key={idx} {...order} />
-    })
+    const orders = this.state.orders.map( (order, idx) => <Order key={idx} {...order} />)
 
     return (
       <div className="App">

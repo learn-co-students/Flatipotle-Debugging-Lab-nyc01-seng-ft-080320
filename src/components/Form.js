@@ -26,17 +26,17 @@ class Form extends Component {
     })
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     const itemType = event.target.name
     const item = event.target.value
 
-    !this.state[`${itemType}`].includes(item) ?
+    !this.state[itemType].includes(item) ?
       this.setState({
-        [itemType]: this.state[`${itemType}`].concat(item)
+        [itemType]: this.state[itemType].concat(item)
       })
     :
       this.setState({
-        [itemType]: this.state[`${itemType}`].filter(
+        [itemType]: this.state[itemType].filter(
           ingr => ingr !== item
         )
       })
