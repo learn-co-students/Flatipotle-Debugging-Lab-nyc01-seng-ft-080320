@@ -18,8 +18,10 @@ class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+
     //next line is unnecessary. Utilizing state should take care of reseting the form
     //document.getElementById("order-form").reset()
+    
     this.props.addOrder(this.state)
 
     this.setState({
