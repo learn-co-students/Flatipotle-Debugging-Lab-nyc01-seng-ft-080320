@@ -16,9 +16,12 @@ class Form extends Component {
     ...DEFAULT_STATE
   }
 
-  handleSubmit() {
+  handleSubmit = (event) => {
     event.preventDefault()
-    document.getElementById("order-form").reset()
+
+    //next line is unnecessary. Utilizing state should take care of reseting the form
+    //document.getElementById("order-form").reset()
+    
     this.props.addOrder(this.state)
 
     this.setState({
@@ -26,17 +29,17 @@ class Form extends Component {
     })
   }
 
-  handleChange() {
+  handleChange = (event) => {
     const itemType = event.target.name
     const item = event.target.value
 
-    !this.state[`${itemType}`].includes(item) ?
+    !this.state[itemType].includes(item) ?
       this.setState({
-        [itemType]: this.state[`${itemType}`].concat(item)
+        [itemType]: this.state[itemType].concat(item)
       })
     :
       this.setState({
-        [itemType]: this.state[`${itemType}`].filter(
+        [itemType]: this.state[itemType].filter(
           ingr => ingr !== item
         )
       })
@@ -69,7 +72,7 @@ class Form extends Component {
 
           <br />
 
-          <button className="ui blue big button" type="submit">Submit</button>
+          <button className="ui blue big button" type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
     )
